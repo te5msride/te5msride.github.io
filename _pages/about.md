@@ -2,16 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='#'>Ph.D. Candidate at University of North Texas</a>. Advanced Robotic Manipulators (ARM) Lab.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>University of North Texas</p>
+    <p>Discovery Park, Office E225G, Lab C245</p>
+    <p>Email: trevorexley[at]my.unt.edu</p>
 
 news: true # includes a list of news items
 latest_posts: true # includes a list of the newest posts
@@ -19,8 +19,23 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Trevor is cool. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+As a Ph.D. candidate at the University of North Texas, I'm engaged in cutting-edge research at the Advanced Robotic Manipulators (ARM) Lab, where my focus lies on the innovative realms of thermo-active soft actuators and variable impedance actuators. This work is at the forefront of advancing robotic capabilities, blending principles from various disciplines to push the boundaries of what's possible in robotic manipulation and actuation.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My journey into robotics builds upon a strong foundation laid during my master's program, where I was affiliated with the Biomedical AI Lab at UNT. There, I delved into the potential of sensor data to uncover predictive capabilities for Parkinson's symptoms, a project that stands at the intersection of healthcare, machine learning, and robotics.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My current research endeavors center around:
+
+- **Developing Thermo-Active Soft Actuators**: Exploring innovative materials and designs that respond to temperature changes, enabling new forms of movement and interaction in robotic systems.
+- **Advancing Variable Impedance Actuators**: Creating actuators that can dynamically alter their stiffness and damping properties, allowing robots to adapt to a wide range of tasks and environments with unprecedented versatility.
+- **Interdisciplinary Applications**: Bridging the gap between robotics and other fields, such as biomedical engineering and artificial intelligence, to address complex challenges with holistic, innovative solutions.
+
+Through my work, I aim to not only contribute valuable insights and advancements to the field of robotics but also to pave the way for applications that improve human life and interaction with technology.
+
+social:
+
+- icon: fa-twitter
+  url: 'https://twitter.com/TrevorExley'
+- icon: ai-google-scholar
+  url: 'https://scholar.google.com/citations?user=_JXYtAsAAAAJ&hl=en'
+- icon: fa-linkedin
+  url: 'https://www.linkedin.com/in/trevor-exley-573412166/'
