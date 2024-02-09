@@ -21,9 +21,9 @@ group :jekyll_plugins do
     gem 'mini_racer'
     gem 'unicode_utils'
     gem 'webrick'
-    gem "json"
-    # gem 'csv'
-    # gem 'observer'
+    gem 'json'
+    gem 'csv'
+    gem 'observer'
 
 end
 group :other_plugins do
