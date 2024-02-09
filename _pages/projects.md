@@ -5,7 +5,7 @@ permalink: /projects/
 description: Showcasing a diverse range of projects from my academic and research pursuits.
 nav: true
 nav_order: 2
-display_categories: [Research, Development, Collaborations]
+display_categories: [Research]
 horizontal: false
 ---
 
