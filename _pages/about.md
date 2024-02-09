@@ -2,21 +2,29 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Ph.D. Candidate at University of North Texas</a>. Advanced Robotic Manipulators (ARM) Lab.
+subtitle: Ph.D. Candidate at University of North Texas. Advanced Robotic Manipulators (ARM) Lab.
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
   address: >
-    <p>University of North Texas</p>
-    <p>Discovery Park, Office E225G, Lab C245</p>
+    <p>University of North Texas, Discovery Park</p>
+    <p>Office E225G, Lab C245</p>
     <p>Email: trevorexley[at]my.unt.edu</p>
 
-news: true # includes a list of news items
-latest_posts: true # includes a list of the newest posts
+news: false # includes a list of news items
+latest_posts: false # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
+
+# social:
+#   - icon: fa-twitter
+#     url: "https://twitter.com/TrevorExley"
+#   - icon: ai-google-scholar
+#     url: "https://scholar.google.com/citations?user=_JXYtAsAAAAJ&hl=en"
+#   - icon: fa-linkedin
+#     url: "https://www.linkedin.com/in/trevor-exley-573412166/"
 ---
 
 As a Ph.D. candidate at the University of North Texas, I'm engaged in cutting-edge research at the Advanced Robotic Manipulators (ARM) Lab, where my focus lies on the innovative realms of thermo-active soft actuators and variable impedance actuators. This work is at the forefront of advancing robotic capabilities, blending principles from various disciplines to push the boundaries of what's possible in robotic manipulation and actuation.
@@ -30,12 +38,3 @@ My current research endeavors center around:
 - **Interdisciplinary Applications**: Bridging the gap between robotics and other fields, such as biomedical engineering and artificial intelligence, to address complex challenges with holistic, innovative solutions.
 
 Through my work, I aim to not only contribute valuable insights and advancements to the field of robotics but also to pave the way for applications that improve human life and interaction with technology.
-
-social:
-
-- icon: fa-twitter
-  url: 'https://twitter.com/TrevorExley'
-- icon: ai-google-scholar
-  url: 'https://scholar.google.com/citations?user=_JXYtAsAAAAJ&hl=en'
-- icon: fa-linkedin
-  url: 'https://www.linkedin.com/in/trevor-exley-573412166/'
