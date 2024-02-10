@@ -3,8 +3,7 @@
 
   <!-- Head -->
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="refresh" content="3; url=/">    <!-- Metadata, OpenGraph and Schema.org -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    <!-- Metadata, OpenGraph and Schema.org -->
     
     <!-- Website verification -->
     <meta name="google-site-verification" content="">
@@ -18,23 +17,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page not found | Trevor W. Exley</title>
+    <title>a post with jupyter notebook | Trevor W. Exley</title>
     <meta name="author" content="Trevor W. Exley">
-    <meta name="description" content="Looks like there has been a mistake. Nothing exists here.">
+    <meta name="description" content="an example of a blog post with jupyter notebook">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
     <!-- OpenGraph -->
     <meta property="og:site_name" content="Trevor W. Exley">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Trevor W. Exley | Page not found">
-    <meta property="og:url" content="https://te5msride.github.io/404.html">
-    <meta property="og:description" content="Looks like there has been a mistake. Nothing exists here.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Trevor W. Exley | a post with jupyter notebook">
+    <meta property="og:url" content="https://te5msride.github.io/blog/2023/jupyter-notebook/">
+    <meta property="og:description" content="an example of a blog post with jupyter notebook">
     
     <meta property="og:locale" content="en">
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Page not found">
-    <meta name="twitter:description" content="Looks like there has been a mistake. Nothing exists here.">
+    <meta name="twitter:title" content="a post with jupyter notebook">
+    <meta name="twitter:description" content="an example of a blog post with jupyter notebook">
     
     <meta name="twitter:site" content="@TrevorExley">
     <meta name="twitter:creator" content="@TrevorExley">
@@ -62,7 +61,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://te5msride.github.io/404.html">
+    <link rel="canonical" href="https://te5msride.github.io/blog/2023/jupyter-notebook/">
 
     <!-- Dark Mode -->
     
@@ -99,8 +98,8 @@
           </li>
           
           <!-- Blog -->
-          <!-- <li class="nav-item ">
-                <a class="nav-link" href="/blog/">blog</a>
+          <!-- <li class="nav-item active">
+                <a class="nav-link" href="/blog/">blog<span class="sr-only">(current)</span></a>
               </li> -->
 
           <!-- Other pages -->
@@ -138,18 +137,91 @@
     <!-- Content -->
     <div class="container mt-5">
       
-        <!-- page.html -->
-        <div class="post">
+        <!-- _layouts/post.html -->
 
-          <header class="post-header">
-            <h1 class="post-title">Page not found</h1>
-            <p class="post-description">Looks like there has been a mistake. Nothing exists here.</p>
-          </header>
+<div class="post">
 
-          <article>
-            <p>You will be redirected to the main page within 3 seconds. If not redirected, please go back to the <a href="/">home page</a>.</p>
+  <header class="post-header">
+    <h1 class="post-title">a post with jupyter notebook</h1>
+    <p class="post-meta">July 4, 2023</p>
+    <p class="post-tags">
+      <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+        ·  
+        <a href="/blog/tag/formatting">
+          <i class="fas fa-hashtag fa-sm"></i> formatting</a>  
+          <a href="/blog/tag/jupyter">
+          <i class="fas fa-hashtag fa-sm"></i> jupyter</a>  
+          
+        ·  
+        <a href="/blog/category/sample-posts">
+          <i class="fas fa-tag fa-sm"></i> sample-posts</a>  
+          
 
-          </article>
+    </p>
+  </header>
+
+  <article class="post-content">
+    
+    <div id="markdown-content">
+      <p>To include a jupyter notebook in a post, you can use the following code:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{::nomarkdown}
+{% assign jupyter_path = "assets/jupyter/blog.ipynb" | relative_url %}
+{% capture notebook_exists %}{% file_exists assets/jupyter/blog.ipynb %}{% endcapture %}
+{% if notebook_exists == "true" %}
+    {% jupyter_notebook jupyter_path %}
+{% else %}
+    <span class="nt">&lt;p&gt;</span>Sorry, the notebook you are looking for does not exist.<span class="nt">&lt;/p&gt;</span>
+{% endif %}
+{:/nomarkdown}
+</code></pre></div></div>
+
+<p>Let’s break it down: this is possible thanks to <a href="https://github.com/red-data-tools/jekyll-jupyter-notebook" rel="external nofollow noopener" target="_blank">Jekyll Jupyter Notebook plugin</a> that allows you to embed jupyter notebooks in your posts. It basically calls <a href="https://nbconvert.readthedocs.io/en/latest/usage.html#convert-html" rel="external nofollow noopener" target="_blank"><code class="language-plaintext highlighter-rouge">jupyter nbconvert --to html</code></a> to convert the notebook to an html page and then includes it in the post. Since <a href="https://jekyllrb.com/docs/configuration/markdown/" rel="external nofollow noopener" target="_blank">Kramdown</a> is the default Markdown renderer for Jekyll, we need to surround the call to the plugin with the <a href="https://kramdown.gettalong.org/syntax.html#extensions" rel="external nofollow noopener" target="_blank">::nomarkdown</a> tag so that it stops processing this part with Kramdown and outputs the content as-is.</p>
+
+<p>The plugin takes as input the path to the notebook, but it assumes the file exists. If you want to check if the file exists before calling the plugin, you can use the <code class="language-plaintext highlighter-rouge">file_exists</code> filter. This avoids getting a 404 error from the plugin and ending up displaying the main page inside of it instead. If the file does not exist, you can output a message to the user. The code displayed above outputs the following:</p>
+
+
+
+
+    <div class="jupyter-notebook" style="position: relative; width: 100%; margin: 0 auto;">
+  <div class="jupyter-notebook-iframe-container">
+    <iframe src="/assets/jupyter/blog.ipynb.html" style="position: absolute; top: 0; left: 0; border-style: none;" width="100%" height="100%" onload="this.parentElement.style.paddingBottom = (this.contentWindow.document.documentElement.scrollHeight + 10) + 'px'"></iframe>
+  </div>
+</div>
+
+
+
+<p>Note that the jupyter notebook supports both light and dark themes.</p>
+
+    </div>
+  </article><div id="giscus_thread" style="max-width: 800px; margin: 0 auto;">
+  <script>
+    let giscusTheme = localStorage.getItem("theme");
+    let giscusAttributes = {
+        "src": "https://giscus.app/client.js",
+        "data-repo": "alshedivat/al-folio",
+        "data-repo-id": "MDEwOlJlcG9zaXRvcnk2MDAyNDM2NQ==",
+        "data-category": "Comments",
+        "data-category-id": "DIC_kwDOA5PmLc4CTBt6",
+        "data-mapping": "title",
+        "data-strict": "1",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "0",
+        "data-input-position": "bottom",
+        "data-theme": giscusTheme,
+        "data-lang": "en",
+        "crossorigin": "anonymous",
+        "async": "",
+    };
+
+
+    let giscusScript = document.createElement("script");
+    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+    document.getElementById("giscus_thread").appendChild(giscusScript);
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a>
+</noscript>
+</div>
 </div>
 
       
