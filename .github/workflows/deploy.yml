@@ -29,20 +29,21 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11" # Specify the Python version you need
+          python-version: "3.x" # Specify the Python version you need
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16" # Specify the Node.js version you need
-
-      - name: Install Python and Node.js Dependencies
+      - name: Create and activate virtual environment
         run: |
-          pip3 install --upgrade jupyter
-          npm install -g mermaid.cli
+          python -m venv venv
+          source venv/bin/activate
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt # If you have a requirements.txt file
 
       - name: Install and Build
         run: |
+          npm install -g mermaid.cli
           export JEKYLL_ENV=production
           bundle exec jekyll build --trace
 
