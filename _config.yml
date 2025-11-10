@@ -6,7 +6,7 @@ title: Trevor W. Exley
 first_name: Trevor
 middle_name: W.
 last_name: Exley
-email: trevorexley@my.unt.edu
+# email: trevorexley@my.unt.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Dedicated researcher in biomechanics, machine learning, and compliant robotics with a focus on rehabilitation applications.
 footer_text: >
@@ -104,6 +104,11 @@ orcid_id: 0000-0003-3175-0587 # your ORCID ID
 # youtube_id: Trevor_Exley # your youtube channel id (youtube.com/@<youtube_id>)
 # discord_id: # your discord id (18-digit unique numerical identifier)
 # zotero_username: te5msride # your zotero username
+# Optional: lab website button (uses a Font Awesome icon)
+additional_links:
+  - title: "SBRP @ IIT"
+    icon: "fas fa-flask"
+    url: "https://sbrp.iit.it"
 
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
