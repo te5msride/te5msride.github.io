@@ -9,8 +9,9 @@ profile:
   image_circular: true
   address: >
     <p>Istituto Italiano di Tecnologia</p>
-    <p>Via Enrico Melen, 83, 16152 Genova GE, Italy</p>
-    <p>Email: trevorwexley [at] gmail [dot] com</p>
+    <p>Via Morego, 30, 16163 Genova GE, Italy</p>
+    <p>Email: trevor.exley [at] iit.it</p>
+
 news: false
 latest_posts: false
 selected_papers: true
