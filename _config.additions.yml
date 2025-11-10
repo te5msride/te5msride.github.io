@@ -1,0 +1,31 @@
+# --- UPDATED BY CHATGPT (light cleanup) ---
+title: Trevor W. Exley
+first_name: Trevor
+middle_name: W.
+last_name: Exley
+email: trevorwexley@gmail.com
+description: >
+  Postdoctoral Researcher in soft biorobotics and compliant actuation; research spans thermo-active soft actuators, variable impedance, and human–robot interaction (HRI). Currently at Istituto Italiano di Tecnologia (IIT), Genova.
+keywords: soft robotics, thermo-active actuators, HRI, variable impedance, biomechanics, machine learning
+
+# Social and scholar IDs (fill in the TODOs)
+scholar: "TODO: your Google Scholar user id"
+github_username: te5msride
+orcid_id: "TODO: your ORCID id"
+linkedin_username: "TODO: your LinkedIn handle"
+
+# Navigation order (home, publications, projects, cv, teaching)
+navbar:
+  - title: "About"
+    url: /
+  - title: "Publications"
+    url: /publications/
+  - title: "Projects"
+    url: /projects/
+  - title: "CV"
+    url: /cv/
+  - title: "Teaching"
+    url: /teaching/
+
+# Turn off blog until you want it
+blog: false
