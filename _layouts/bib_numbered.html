@@ -1,0 +1,5 @@
+{% raw %}<ol class="bibliography" reversed>
+  {% for entry in entries %}
+    <li id="{{ entry.key }}">{{ entry | reference }}</li>
+  {% endfor %}
+</ol>{% endraw %}
