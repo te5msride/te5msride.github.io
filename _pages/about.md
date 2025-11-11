@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Postdoctoral Researcher — Soft Biorobotics Perception Research Line, Istituto Italiano di Tecnologia (IIT), Genova
+# subtitle: Postdoctoral Researcher — Soft Biorobotics Perception Research Line, Istituto Italiano di Tecnologia (IIT), Genova
 profile:
   align: right
   image: prof_pic.jpg
