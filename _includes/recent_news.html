@@ -1,0 +1,28 @@
+<div class="recent-news">
+  {% assign now_s = 'now' | date: '%s' %} {% assign cutoff_s = now_s | minus:
+  63072000 %}
+  <!-- 2 years in seconds -->
+
+  {% assign news = site.news | sort: 'date' | reverse %} {% assign shown = 0 %}
+
+  <ul class="recent-news__list">
+    {% for item in news %} {% assign item_s = item.date | date: '%s' %} {% if
+    item_s >= cutoff_s %} {% assign shown = shown | plus: 1 %}
+    <li class="recent-news__item">
+      <span class="recent-news__date">{{ item.date | date: "%b %Y" }}</span>
+      <span class="recent-news__text">
+        {% if item.inline %} {{ item.content | remove: '
+        <p>' | remove: '</p>
+        ' | emojify }} {% else %}
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% endif %}
+      </span>
+    </li>
+    {% if include.limit and shown >= include.limit %}{% break %}{% endif %} {%
+    endif %} {% endfor %}
+  </ul>
+
+  {% if shown == 0 %}
+  <div class="recent-news__empty">No news in the last 2 years yet.</div>
+  {% endif %}
+</div>

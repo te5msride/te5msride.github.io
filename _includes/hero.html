@@ -1,0 +1,49 @@
+<div class="hero">
+  <div class="hero__media">
+    <video
+      class="hero__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="{{ page.hero.poster | relative_url }}"
+    >
+      {% if page.hero.webm %}
+      <source src="{{ page.hero.webm | relative_url }}" type="video/webm" />
+      {% endif %}
+      <source src="{{ page.hero.mp4 | relative_url }}" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="hero__content">
+    {% if page.hero.headline %}
+    <div class="hero__kicker">{{ page.hero.headline }}</div>
+    {% endif %}
+    <h1 class="hero__title">
+      {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}
+    </h1>
+    {% if page.hero.subhead %}
+    <p class="hero__subhead">{{ page.hero.subhead }}</p>
+    {% endif %}
+
+    <div class="hero__cta">
+      {% if page.hero.cta_primary_text and page.hero.cta_primary_href %}
+      <a
+        class="btn btn-sm btn-primary"
+        href="{{ page.hero.cta_primary_href | relative_url }}"
+      >
+        {{ page.hero.cta_primary_text }}
+      </a>
+      {% endif %} {% if page.hero.cta_secondary_text and
+      page.hero.cta_secondary_href %}
+      <a
+        class="btn btn-sm btn-outline-primary"
+        href="{{ page.hero.cta_secondary_href | relative_url }}"
+      >
+        {{ page.hero.cta_secondary_text }}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>

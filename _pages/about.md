@@ -2,7 +2,6 @@
 layout: about
 title: about
 permalink: /
-# subtitle: Postdoctoral Researcher — Soft Biorobotics Perception Research Line, Istituto Italiano di Tecnologia (IIT), Genova
 profile:
   align: right
   image: prof_pic.jpg
@@ -11,7 +10,20 @@ profile:
     <p>Istituto Italiano di Tecnologia</p>
     <p>Via Morego, 30, 16163 Genova GE, Italy</p>
     <p>Email: trevor.exley [at] iit.it</p>
-news: false
+
+hero:
+  enabled: true
+  headline: "Soft robotics • thermal actuation • embedded sensing"
+  subhead: "I build monolithic, thermo-active soft systems and data-driven biomechanics tools."
+  mp4: /assets/video/hero.mp4
+  webm: /assets/video/hero.webm
+  poster: /assets/img/hero-poster.jpg
+  cta_primary_text: "View Work"
+  cta_primary_href: "/work/"
+  cta_secondary_text: "CV"
+  cta_secondary_href: "/cv/"
+
+news: true
 latest_posts: false
 selected_papers: true
 social: true

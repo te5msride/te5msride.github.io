@@ -1,0 +1,50 @@
+{% assign projects = site.projects | sort: 'order' %}
+<div class="work-grid" id="work-grid">
+  {% for p in projects %} {% if p.featured %}
+  <article
+    class="work-card"
+    data-title="{{ p.title | downcase }}"
+    data-tags="{{ p.tags | join: ',' | downcase }}"
+  >
+    <a class="work-card__link" href="{{ p.url | relative_url }}">
+      <div class="work-card__media">
+        {% if p.hover_video %}
+        <video
+          class="work-card__hover"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="{{ p.thumbnail | relative_url }}"
+        >
+          <source src="{{ p.hover_video | relative_url }}" type="video/mp4" />
+        </video>
+        {% endif %}
+        <img
+          class="work-card__img"
+          src="{{ p.thumbnail | relative_url }}"
+          alt="{{ p.title }}"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="work-card__body">
+        <div class="work-card__topline">
+          <h3 class="work-card__title">{{ p.title }}</h3>
+          {% if p.year %}<span class="work-card__year">{{ p.year }}</span>{%
+          endif %}
+        </div>
+        {% if p.summary %}
+        <p class="work-card__summary">{{ p.summary }}</p>
+        {% endif %} {% if p.tags %}
+        <div class="work-card__tags">
+          {% for t in p.tags %}
+          <span class="work-tag">{{ t }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </a>
+  </article>
+  {% endif %} {% endfor %}
+</div>
