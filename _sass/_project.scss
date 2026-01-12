@@ -1,0 +1,48 @@
+.project-hero {
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 0.2rem 0 1.2rem 0;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.project-hero__media {
+  width: 100%;
+  height: clamp(300px, 42vw, 540px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.project-header h1 {
+  margin: 0 0 0.35rem 0;
+}
+
+.project-tagline {
+  margin: 0;
+  font-size: 1.05rem;
+  opacity: 0.92;
+  max-width: 980px;
+}
+
+.project-links {
+  margin: 0.85rem 0 1.3rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.project-content {
+  max-width: 980px;
+}
+
+.project-content h2 {
+  margin-top: 1.5rem;
+}
+
+.project-citation pre {
+  background: rgba(0, 0, 0, 0.04);
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  max-width: 980px;
+}

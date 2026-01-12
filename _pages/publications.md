@@ -2,7 +2,7 @@
 layout: page
 title: publications
 permalink: /publications/
-nav: true
+nav: false
 ---
 
 All publications listed newest first.

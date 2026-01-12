@@ -1,0 +1,31 @@
+{% assign projects = site.projects | where: "featured", true | sort: "order" %}
+{% assign shown = 0 %}
+
+<div class="selected-grid">
+  {% for p in projects %} {% assign shown = shown | plus: 1 %}
+  <article class="selected-card">
+    <a class="selected-card__link" href="{{ p.url | relative_url }}">
+      <div class="selected-card__media">
+        <img
+          src="{{ p.thumbnail | relative_url }}"
+          alt="{{ p.title }}"
+          loading="lazy"
+        />
+      </div>
+      <div class="selected-card__body">
+        <div class="selected-card__top">
+          <div class="selected-card__title">{{ p.title }}</div>
+          {% if p.year %}
+          <div class="selected-card__year">{{ p.year }}</div>
+          {% endif %}
+        </div>
+        {% if p.summary %}
+        <div class="selected-card__summary">{{ p.summary }}</div>
+        {% endif %}
+      </div>
+    </a>
+  </article>
+
+  {% if include.limit and shown >= include.limit %}{% break %}{% endif %} {%
+  endfor %}
+</div>

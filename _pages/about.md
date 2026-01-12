@@ -1,34 +1,86 @@
 ---
-layout: about
+layout: about_wide
 title: about
-permalink: /
-profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: true
-  address: >
-    <p>Istituto Italiano di Tecnologia</p>
-    <p>Via Morego, 30, 16163 Genova GE, Italy</p>
-    <p>Email: trevor.exley [at] iit.it</p>
+permalink: /about/
+nav: true
+nav_order: 3
 
-hero:
-  enabled: true
-  headline: "Soft robotics • thermal actuation • embedded sensing"
-  subhead: "I build monolithic, thermo-active soft systems and data-driven biomechanics tools."
-  mp4: /assets/video/hero.mp4
-  webm: /assets/video/hero.webm
-  poster: /assets/img/hero-poster.jpg
-  cta_primary_text: "View Work"
-  cta_primary_href: "/work/"
-  cta_secondary_text: "CV"
-  cta_secondary_href: "/cv/"
+hero_image: /assets/img/about-banner.png
 
-news: true
-latest_posts: false
-selected_papers: true
-social: true
+intro: >
+  I’m a postdoctoral researcher at the Istituto Italiano di Tecnologia (IIT) in Genova, in the Soft Biorobotics Perception research line.  
+  I build architected, monolithic soft robotic systems where structure and function are co-designed—pushing toward printable, assembly-free robots that integrate actuation and sensing in a single body.
+
+links:
+  - text: Email
+    href: mailto:trevor.exley@iit.it
+  - text: Website
+    href: https://exley.info
+  - text: Google Scholar
+    href: https://scholar.google.com/citations?user=_JXYtAsAAAAJ&hl=en
+  - text: GitHub
+    href: https://github.com/te5msride
+  - text: LinkedIn
+    href: https://www.linkedin.com/in/trevor-exley-573412166/
+  - text: CV (PDF)
+    href: /assets/pdf/Trevor_Exley_CV.pdf
+
+right_column: |
+  ## Selected publications
+  - **MELEGROS: Monolithic Elephant-inspired Gripper with Optical Sensors** — *Advanced Science* (2025, accepted).
+  - **Estimating Stiffness and Damping of a Novel Variable Impedance Actuator…** — *Scientific Reports* (2025).
+  - **TVIM: Thermoactive Variable Impedance Module…** — *IEEE Access* (2025).
+  - **Agonist–Antagonist Pouch Motors: Bidirectional Soft Actuators…** — *IROS* (2024).
+  - **Predicting UPDRS Motor Symptoms… from Force Plates Using Machine Learning** — *IEEE JBHI* (2022).
+
+  ## Patents (selected)
+  - Thermal-based variable impedance actuator — US Patent App. 18/418,008 (2024).
+  - Thermoactivate modular soft actuator based on phase transition — US Patent App. 18/417,801 (2024).
+
+  ## Contact
+  trevor.exley@iit.it  
+  Genova, Italy
 ---
 
-I am a postdoctoral researcher at the [Istituto Italiano di Tecnologia (IIT)](https://www.iit.it) in Genova, advised by [Lucia Beccai](https://www.iit.it/people-details/-/people/lucia-beccai) in the [Soft Biorobotics Perception (SBRP) Lab](https://sbrp.iit.it). My current work focuses on **elephant-inspired soft robotic manipulators and monolithic systems**, exploring integrated actuation, sensing, and control for embodied intelligence in compliant robots.
+## Appointments
 
-Previously, I completed my Ph.D. in Biomedical Engineering at the [University of North Texas](https://www.unt.edu), where I was a member of the [Advanced Robotic Manipulators (ARM) Lab](https://engineering.unt.edu/bme/research/labs/arm/) under [Amir Jafari](https://engineering.unt.edu/people/amir-jafari.html). My doctoral research investigated **thermo-active strategies for soft actuators** and **thermal variable-impedance systems**, advancing their design for safe, adaptive physical human–robot interaction. The work introduced compliant phase-change actuators and thermoelectric control approaches that improve efficiency, adaptability, and thermal responsiveness in soft robotic devices. I was an **NIH T32 Fellow** and supported through the Graduate Research Training Initiative for Student Enhancement (G-RISE) program.
+- **Postdoctoral Researcher**, Soft Biorobotics Perception research line, Istituto Italiano di Tecnologia (IIT), Genova (2024–Present)
+- **PhD Researcher**, Advanced Robotic Manipulators Lab, University of North Texas (2021–2024)
+- **Lab affiliated**, Biomedical AI Lab, University of North Texas (2020–2023)
+
+## Education
+
+- **Ph.D., Biomedical Engineering**, University of North Texas (2021–2024)  
+  Dissertation: _Thermo-Reversible Phase-Change Actuators for Physical Human–Robot Interactions_  
+  Supervisor: Amir Jafari | GPA: 4.00/4.00
+- **M.S., Biomedical Engineering**, University of North Texas (2020–2021)  
+  Thesis: _Parkinson’s Disease and UPDRS-III Prediction Using Quiet Standing Data and Applied Machine Learning_
+- **B.S., Biomedical Engineering**, University of North Texas (2017–2020)  
+  Minors: Mathematics, Mechanical Engineering
+
+## Awards
+
+- **Outstanding Ph.D. Graduate**, University of North Texas (2024)
+- **Outstanding M.S. Student**, University of North Texas (2021)
+- Outstanding Senior; Distinguished Honors College Scholar; UNT Excellence Scholarship (2020)
+- Esports Scholarship, UNT Varsity League of Legends Team (2019–2020)
+
+## Grants & funding
+
+- **NIH G-RISE (T32GM136501)** (2021–2024) — $109,318 USD
+
+## Service
+
+- Co–Guest Editor, _Actuators_ Special Issue “Soft Robotics in Biomedical Application” (2024)
+- Reviewer: Actuators, Applied Sciences, Biomimetics, IEEE Access, ICORR, IROS, RoboSoft, RA-L, T-MRB, T-RO, JNER, Soft Robotics, and others
+
+## Talks (selected)
+
+- Global Ethicon — “Thermo-Reversible Phase-Change Actuators for pHRI” (Feb 15, 2023)
+- UNT Health Science Center — “Introduction to Machine Learning” (Jun 11, 2021)
+
+## Professional memberships
+
+- IEEE (2020–Present)
+- BMES (2020–2024)
+- ASB (2020–2021)

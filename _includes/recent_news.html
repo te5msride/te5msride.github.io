@@ -1,28 +1,29 @@
 <div class="recent-news">
-  {% assign now_s = 'now' | date: '%s' %} {% assign cutoff_s = now_s | minus:
-  63072000 %}
-  <!-- 2 years in seconds -->
-
-  {% assign news = site.news | sort: 'date' | reverse %} {% assign shown = 0 %}
+  {%- assign posts = site.news -%} {%- if posts == nil or posts.size == 0 -%}
+  {%- assign posts = site.announcements -%} {%- endif -%} {%- assign now_year =
+  'now' | date: '%Y' | plus: 0 -%} {%- assign cutoff_year = now_year | minus: 1
+  -%} {%- assign posts_sorted = posts | sort: 'date' | reverse -%} {%- assign
+  shown = 0 -%}
 
   <ul class="recent-news__list">
-    {% for item in news %} {% assign item_s = item.date | date: '%s' %} {% if
-    item_s >= cutoff_s %} {% assign shown = shown | plus: 1 %}
+    {%- for item in posts_sorted -%} {%- assign item_year = item.date | date:
+    '%Y' | plus: 0 -%} {%- if item_year >= cutoff_year -%} {%- assign shown =
+    shown | plus: 1 -%}
     <li class="recent-news__item">
       <span class="recent-news__date">{{ item.date | date: "%b %Y" }}</span>
       <span class="recent-news__text">
-        {% if item.inline %} {{ item.content | remove: '
+        {%- if item.inline -%} {{ item.content | remove: '
         <p>' | remove: '</p>
-        ' | emojify }} {% else %}
+        ' | emojify }} {%- else -%}
         <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        {% endif %}
+        {%- endif -%}
       </span>
     </li>
-    {% if include.limit and shown >= include.limit %}{% break %}{% endif %} {%
-    endif %} {% endfor %}
+    {%- if include.limit and shown >= include.limit -%}{% break %}{%- endif -%}
+    {%- endif -%} {%- endfor -%}
   </ul>
 
-  {% if shown == 0 %}
+  {%- if shown == 0 -%}
   <div class="recent-news__empty">No news in the last 2 years yet.</div>
-  {% endif %}
+  {%- endif -%}
 </div>

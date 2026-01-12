@@ -1,0 +1,35 @@
+---
+layout: wide
+---
+
+<div class="about-hero">
+  {% if page.hero_image %}
+  <img
+    class="about-hero__img"
+    src="{{ page.hero_image | relative_url }}"
+    alt="{{ page.title | escape }}"
+  />
+  {% endif %}
+</div>
+
+<div class="about-top">
+  <div class="about-top__intro">
+    {% if page.intro %}
+    <div class="about-top__text">{{ page.intro | markdownify }}</div>
+    {% endif %} {% if page.links %}
+    <div class="about-top__links">
+      {% for l in page.links %}
+      <a href="{{ l.href | relative_url }}">{{ l.text }}</a>{% unless
+      forloop.last %}<span class="sep">·</span>{% endunless %} {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="about-grid">
+  <section class="about-col">{{ content }}</section>
+
+  <aside class="about-col about-col--right">
+    {% if page.right_column %} {{ page.right_column | markdownify }} {% endif %}
+  </aside>
+</div>

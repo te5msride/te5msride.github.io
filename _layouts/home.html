@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<div class="home-full">
+  <div class="post home-inner">
+    {% if page.hero and page.hero.enabled %} {% include hero.html %} {% endif %}
+    {% if page.home_bio %}
+    <div class="home-bio">
+      <div class="home-bio__text">{{ page.home_bio | markdownify }}</div>
+      {% if page.home_links %}
+      <div class="home-bio__links">
+        {% for l in page.home_links %}
+        <a href="{{ l.href | relative_url }}">{{ l.text }}</a>{% unless
+        forloop.last %}<span class="sep">·</span>{% endunless %} {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="home-columns">
+      <div class="home-left">
+        <div class="home-headrow">
+          <h2 class="home-section__title">
+            <a
+              href="{{ '/work/' | relative_url }}"
+              style="color: inherit; text-decoration: none"
+              >selected work</a
+            >
+          </h2>
+          <a class="home-headrow__link" href="{{ '/work/' | relative_url }}"
+            >View all →</a
+          >
+        </div>
+
+        {% include selected_work.html limit=4 %}
+      </div>
+
+      <aside class="home-right">
+        <div class="home-headrow">
+          <h2 class="home-section__title">
+            <a
+              href="{{ '/news/' | relative_url }}"
+              style="color: inherit; text-decoration: none"
+              >news</a
+            >
+          </h2>
+          <a class="home-headrow__link" href="{{ '/news/' | relative_url }}"
+            >All →</a
+          >
+        </div>
+
+        {% include recent_news.html limit=8 %}
+      </aside>
+    </div>
+  </div>
+</div>

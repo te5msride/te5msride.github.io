@@ -1,0 +1,80 @@
+---
+layout: wide
+---
+
+<article class="project">
+  <div class="project-hero">
+    {% if page.hero_video %}
+    <video
+      class="project-hero__media"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="{{ page.hero_poster | relative_url }}"
+    >
+      <source src="{{ page.hero_video | relative_url }}" type="video/mp4" />
+    </video>
+    {% elsif page.hero_image %}
+    <img
+      class="project-hero__media"
+      src="{{ page.hero_image | relative_url }}"
+      alt="{{ page.title }}"
+    />
+    {% endif %}
+  </div>
+
+  <header class="project-header">
+    <h1>{{ page.title }}</h1>
+
+    {% if page.summary %}
+    <p class="project-tagline">{{ page.summary }}</p>
+    {% endif %}
+
+    <div class="project-links">
+      {% if page.paper and page.paper.url %}
+      <a
+        class="btn btn-sm btn-outline-primary"
+        href="{{ page.paper.url }}"
+        target="_blank"
+        rel="noopener"
+        >📄 {{ page.paper.title | default: "Paper" }}</a
+      >
+      {% endif %} {% if page.video and page.video.url %}
+      <a
+        class="btn btn-sm btn-outline-primary"
+        href="{{ page.video.url }}"
+        target="_blank"
+        rel="noopener"
+        >▶ {{ page.video.title | default: "Video" }}</a
+      >
+      {% endif %} {% if page.code and page.code.url %}
+      <a
+        class="btn btn-sm btn-outline-primary"
+        href="{{ page.code.url }}"
+        target="_blank"
+        rel="noopener"
+        >💻 {{ page.code.title | default: "Code" }}</a
+      >
+      {% endif %} {% if page.dataset and page.dataset.url %}
+      <a
+        class="btn btn-sm btn-outline-primary"
+        href="{{ page.dataset.url }}"
+        target="_blank"
+        rel="noopener"
+        >⤓ {{ page.dataset.title | default: "Dataset" }}</a
+      >
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="project-content">{{ content }}</div>
+
+  {% if page.citation %}
+  <section class="project-citation">
+    <h3>Citation</h3>
+    <pre>{{ page.citation }}</pre>
+  </section>
+  {% endif %}
+</article>

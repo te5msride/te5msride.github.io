@@ -1,0 +1,18 @@
+/* Full-width navbar container */
+.navbar .container,
+.navbar .container-fluid {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/* Force brand to left */
+.navbar-brand {
+  margin-left: 0 !important;
+}
+
+/* Keep nav items right aligned */
+.navbar-nav {
+  margin-left: auto !important;
+}
