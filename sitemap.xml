@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://te5msride.github.io/</loc>
+<loc>https://te5msride.github.io/news/2025-10-01-melegros-demo/</loc>
+<lastmod>2025-10-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://te5msride.github.io/projects/melegros/</loc>
+<lastmod>2026-01-12T15:48:33+00:00</lastmod>
+</url>
+<url>
+<loc>https://te5msride.github.io/projects/tvim/</loc>
+<lastmod>2026-01-12T15:48:33+00:00</lastmod>
+</url>
+<url>
+<loc>https://te5msride.github.io/projects/agonist-antagonist-pouch-motors/</loc>
+<lastmod>2026-01-12T15:48:33+00:00</lastmod>
+</url>
+<url>
+<loc>https://te5msride.github.io/projects/updrs-force-plates/</loc>
+<lastmod>2026-01-12T15:48:33+00:00</lastmod>
+</url>
+<url>
+<loc>https://te5msride.github.io/about/</loc>
 </url>
 <url>
 <loc>https://te5msride.github.io/cv/</loc>
+</url>
+<url>
+<loc>https://te5msride.github.io/</loc>
 </url>
 <url>
 <loc>https://te5msride.github.io/blog/</loc>
@@ -14,5 +37,8 @@
 </url>
 <url>
 <loc>https://te5msride.github.io/publications/</loc>
+</url>
+<url>
+<loc>https://te5msride.github.io/work/</loc>
 </url>
 </urlset>
