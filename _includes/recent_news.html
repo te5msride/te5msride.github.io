@@ -1,14 +1,17 @@
 <div class="recent-news">
   {%- assign posts = site.news -%} {%- if posts == nil or posts.size == 0 -%}
-  {%- assign posts = site.announcements -%} {%- endif -%} {%- assign now_year =
-  'now' | date: '%Y' | plus: 0 -%} {%- assign cutoff_year = now_year | minus: 1
-  -%} {%- assign posts_sorted = posts | sort: 'date' | reverse -%} {%- assign
-  shown = 0 -%}
+  {%- assign posts = site.announcements -%} {%- endif -%} {%- assign now_y =
+  'now' | date: '%Y' | plus: 0 -%} {%- assign now_m = 'now' | date: '%m' | plus:
+  0 -%} {%- assign now_idx = now_y | times: 12 | plus: now_m -%} {%- assign
+  cutoff_idx = now_idx | minus: 24 -%} {% comment %} last 24 months {%
+  endcomment %} {%- assign posts_sorted = posts | sort: 'date' | reverse -%} {%-
+  assign shown = 0 -%}
 
   <ul class="recent-news__list">
-    {%- for item in posts_sorted -%} {%- assign item_year = item.date | date:
-    '%Y' | plus: 0 -%} {%- if item_year >= cutoff_year -%} {%- assign shown =
-    shown | plus: 1 -%}
+    {%- for item in posts_sorted -%} {%- assign y = item.date | date: '%Y' |
+    plus: 0 -%} {%- assign m = item.date | date: '%m' | plus: 0 -%} {%- assign
+    idx = y | times: 12 | plus: m -%} {%- if idx >= cutoff_idx -%} {%- assign
+    shown = shown | plus: 1 -%}
     <li class="recent-news__item">
       <span class="recent-news__date">{{ item.date | date: "%b %Y" }}</span>
       <span class="recent-news__text">
