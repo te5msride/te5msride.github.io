@@ -3,7 +3,7 @@ layout: project
 title: "MELEGROS: Monolithic Elephant-inspired Gripper with Optical Sensors"
 permalink: /projects/melegros/
 featured: true
-order: 4
+order: 2
 year: 2025
 tags: [soft robotics, grasping, optical sensing, monolithic]
 

@@ -3,7 +3,7 @@ layout: project
 title: "Predicting UPDRS Motor Symptoms From Force Plates Using Machine Learning"
 permalink: /projects/updrs-force-plates/
 featured: true
-order: 1
+order: 5
 year: 2024
 tags: [ML, biomechanics, Parkinson’s, force plates]
 

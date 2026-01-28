@@ -3,7 +3,7 @@ layout: project
 title: "TVIM: Thermoactive Variable Impedance Module Evaluating Shear-Mode Capabilities of Polycaprolactone"
 permalink: /projects/tvim/
 featured: true
-order: 2
+order: 4
 year: 2023
 tags: [soft robotics, thermal actuation, variable impedance, polycaprolactone]
 
