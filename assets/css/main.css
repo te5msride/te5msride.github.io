@@ -1794,11 +1794,10 @@ ul.timeline li::before {
 
 .project-hero__media {
   width: 100%;
-  height: auto; /* allow full video to show */
-  aspect-ratio: 16/9; /* choose the look you want */
-  object-fit: contain; /* show entire frame */
-  display: block;
-  background: rgba(0, 0, 0, 0.2); /* letterboxing color when needed */
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .project-header h1 {
