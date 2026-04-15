@@ -3,16 +3,27 @@
   {%- assign posts = site.announcements -%} {%- endif -%} {%- assign now_y =
   'now' | date: '%Y' | plus: 0 -%} {%- assign now_m = 'now' | date: '%m' | plus:
   0 -%} {%- assign now_idx = now_y | times: 12 | plus: now_m -%} {%- assign
-  cutoff_idx = now_idx | minus: 24 -%} {% comment %} last 24 months {%
-  endcomment %} {%- assign posts_sorted = posts | sort: 'date' | reverse -%} {%-
-  assign shown = 0 -%}
+  cutoff_idx = now_idx | minus: 24 -%} {%- assign posts_sorted = posts | sort:
+  'date' | reverse -%} {%- assign shown = 0 -%}
 
   <ul class="recent-news__list">
     {%- for item in posts_sorted -%} {%- assign y = item.date | date: '%Y' |
     plus: 0 -%} {%- assign m = item.date | date: '%m' | plus: 0 -%} {%- assign
-    idx = y | times: 12 | plus: m -%} {%- if idx >= cutoff_idx -%} {%- assign
+    idx = y | times: 12 | plus: m -%} {%- if include.no_cutoff or idx >= cutoff_idx -%} {%- assign
     shown = shown | plus: 1 -%}
-    <li class="recent-news__item">
+    <li
+      class="recent-news__item"
+      {%
+      if
+      include.hover_preview
+      %}
+      data-news-image="{{ item.image | relative_url }}"
+      data-news-video="{{ item.video | relative_url }}"
+      data-news-link="{{ item.link | relative_url }}"
+      {%
+      endif
+      %}
+    >
       <span class="recent-news__date">{{ item.date | date: "%b %Y" }}</span>
       <span class="recent-news__text">
         {%- if item.inline -%} {{ item.content | remove: '

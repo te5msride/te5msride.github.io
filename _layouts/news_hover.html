@@ -1,0 +1,15 @@
+---
+layout: wide
+---
+
+<div class="news-page">
+  <div class="home-headrow">
+    <h1 class="home-section__title">news</h1>
+  </div>
+
+  <div class="news-hover-list">
+    {% include recent_news.html limit=100 hover_preview=true no_cutoff=true %}
+  </div>
+</div>
+
+<script defer src="{{ '/assets/js/news-hover.js' | relative_url }}"></script>

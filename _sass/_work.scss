@@ -10,29 +10,11 @@
   flex: 1 1 220px;
   padding: 0.55rem 0.75rem;
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--global-divider-color);
   background: transparent;
+  color: var(--global-text-color);
 }
 
-.work-tags {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-}
-
-.work-tagbtn {
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: transparent;
-  padding: 0.25rem 0.55rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
-.work-tagbtn.is-active {
-  opacity: 1;
-  font-weight: 600;
-}
 
 .work-grid {
   display: grid;
@@ -47,7 +29,7 @@
 .work-card {
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--global-divider-color);
   background: rgba(0, 0, 0, 0.01);
   transition: transform 120ms ease, box-shadow 120ms ease;
 }
@@ -124,7 +106,7 @@
 }
 
 .work-tag {
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--global-divider-color);
   padding: 0.15rem 0.45rem;
   border-radius: 999px;
   font-size: 0.78rem;

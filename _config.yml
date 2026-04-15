@@ -214,6 +214,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - _news/obs-2026-01-15-robosoft-ws-accept
+  - _news/obs-2026-01-28-robosoft-paper-accept
 keep_files:
   - CNAME
   - .nojekyll

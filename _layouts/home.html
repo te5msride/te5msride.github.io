@@ -50,8 +50,11 @@ layout: default
           >
         </div>
 
-        {% include recent_news.html limit=8 %}
+        <div class="news-hover-list">
+          {% include recent_news.html limit=8 hover_preview=true %}
+        </div>
       </aside>
     </div>
   </div>
+  <script defer src="{{ '/assets/js/news-hover.js' | relative_url }}"></script>
 </div>

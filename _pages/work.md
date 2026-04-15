@@ -9,7 +9,6 @@ description: Selected projects in soft robotics, thermal actuation, sensing, and
 
 <div class="work-controls">
   <input id="work-search" class="work-search" type="search" placeholder="Search projects…" autocomplete="off" />
-  <div id="work-tags" class="work-tags"></div>
 </div>
 
 {% include work_grid.html %}
