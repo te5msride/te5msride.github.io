@@ -6,7 +6,20 @@
   <article class="selected-card">
     <a class="selected-card__link" href="{{ p.url | relative_url }}">
       <div class="selected-card__media">
+        {% if p.hover_video %}
+        <video
+          class="selected-card__hover"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="{{ p.thumbnail | relative_url }}"
+        >
+          <source src="{{ p.hover_video | relative_url }}" type="video/mp4" />
+        </video>
+        {% endif %}
         <img
+          class="selected-card__img"
           src="{{ p.thumbnail | relative_url }}"
           alt="{{ p.title }}"
           loading="lazy"

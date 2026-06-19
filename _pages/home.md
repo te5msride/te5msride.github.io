@@ -18,7 +18,7 @@ hero:
 
 home_bio: >
   I’m a postdoctoral researcher at the Istituto Italiano di Tecnologia (IIT) in Genova.
-  I build thermo-active soft robotic systems and investigate sensing + control for compliant manipulation.
+  I build monolithic soft robotic systems using parametric design tools — integrating actuation, structure, and sensing into single printed bodies.
 
 home_links:
   - text: "Google Scholar"
