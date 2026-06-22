@@ -1767,20 +1767,53 @@ html[data-theme=dark] #news-cursor-preview {
   opacity: 0.85;
 }
 
-.about-hero {
-  width: 100%;
-  border-radius: 18px; /* restore rounded corners */
-  overflow: hidden; /* clip image to rounded shape */
-  background: transparent;
+.about-head {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin: 0.4rem 0 1.6rem;
+}
+@media (max-width: 680px) {
+  .about-head {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+  }
 }
 
-.about-hero__img {
-  width: 100%;
-  height: clamp(260px, 30vw, 380px);
-  display: block;
+.about-head__photo {
+  flex: 0 0 auto;
+  width: clamp(180px, 22vw, 240px);
+  aspect-ratio: 1/1;
   object-fit: cover;
-  object-position: left center;
-  max-width: none; /* critical: prevents gray gap */
+  object-position: center 20%;
+  border-radius: 16px;
+  display: block;
+}
+
+.about-head__media {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.about-head__media canvas {
+  width: 100%;
+  max-width: 620px;
+}
+
+.about-motto__quote {
+  margin: 0;
+  font-family: "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  opacity: 0.55;
+  text-align: center;
 }
 
 .about-top {
