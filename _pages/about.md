@@ -5,7 +5,9 @@ permalink: /about/
 nav: true
 nav_order: 3
 
-hero_image: /assets/img/about-banner.png
+profile_image: /assets/img/prof_pic.jpg
+
+tagline: monolithic systems · immediate functionality · off the printbed
 
 intro: >
   I’m a postdoctoral researcher at the Istituto Italiano di Tecnologia (IIT) in Genova, in the Soft Biorobotics Perception research line.  

@@ -1,0 +1,264 @@
+<canvas id="te-anim" style="image-rendering:pixelated;border-radius:6px;cursor:pointer;max-width:100%;display:block;margin:0 auto;"></canvas>
+<script>
+(function(){
+const P=8,W=84,H=30;
+const cv=document.getElementById('te-anim');
+cv.width=W*P; cv.height=H*P;
+const g=cv.getContext('2d');
+const BG='#0d0d0d',FG='#c4c0b8',BRIGHT='#f0ede8',DIM='#3a3836',GND='#171716',PLT='#3c3a3a';
+function px(x,y,c){if(x<0||x>=W||y<0||y>=H)return;g.fillStyle=c;g.fillRect(x*P,y*P,P,P);}
+function hl(a,b,y,c){for(let x=~~a;x<=~~b;x++)px(x,y,c);}
+function vl(x,a,b,c){for(let y=~~a;y<=~~b;y++)px(x,y,c);}
+function seg(x1,y1,x2,y2,c){
+  const dx=x2-x1,dy=y2-y1,s=Math.max(Math.abs(dx),Math.abs(dy));
+  if(!s)return px(~~x1,~~y1,c);
+  for(let i=0;i<=s;i++)px(Math.round(x1+i/s*dx),Math.round(y1+i/s*dy),c);
+}
+function ease(t){return t<.5?2*t*t:-1+(4-2*t)*t;}
+
+// ---- shared print/cure geometry ----
+const CX=11,CB=25,CL=10,CT=CB-CL;
+const BL=CL;
+const CYCLE=5,TRAVEL=72;
+const GRX=8,GRY=2,GRW=68,GRH=11;
+const WINDOW=4*CYCLE;
+
+// ---- ACT 1: inchworm ----
+const DUR1=580;
+const TP=0.25,TC=0.36,TF=0.47,TI=0.88;
+const GBLINK_T=0.82*TRAVEL,GOUT_T=0.96*TRAVEL;
+const DONE_TK=Math.round((TF+(GOUT_T/TRAVEL)*(TI-TF))*DUR1)+22;
+
+// ---- ACT 2: gripper ----
+const DUR2=640;
+const GHW=2,GFL=10;                 // palm half-width, finger length
+const A_P=0.16,A_C=0.27,A_F=0.40,A_O=0.58,A_D=0.70,A_E=0.93;
+
+const DUR=DUR1+DUR2;
+
+let tk=0,paused=false;
+cv.addEventListener('click',()=>paused=!paused);
+
+// draw a gripper given centre, fall angle (PI/2=upright U, 0=sideways C->right), grip(0 open..1 closed)
+function gripper(cx,cy,ang,grip){
+  const ux=Math.cos(ang),uy=-Math.sin(ang);   // finger axis
+  const pvx=Math.sin(ang),pvy=Math.cos(ang);  // palm axis
+  for(let s=-GHW;s<=GHW;s++) px(Math.round(cx+pvx*s),Math.round(cy+pvy*s),FG); // palm/spine
+  for(const side of [-1,1]){
+    const bx=cx+pvx*GHW*side, by=cy+pvy*GHW*side;
+    const th=grip*0.22;
+    const fx=ux*Math.cos(th)-pvx*side*Math.sin(th);
+    const fy=uy*Math.cos(th)-pvy*side*Math.sin(th);
+    seg(Math.round(bx),Math.round(by),Math.round(bx+fx*GFL),Math.round(by+fy*GFL),FG);
+  }
+}
+
+function dog(nx,cy,phase,wag){
+  hl(nx-7,nx-1,cy-1,FG);            // back
+  hl(nx-7,nx-1,cy,FG);             // belly
+  px(nx,cy-1,FG); px(nx,cy,FG);    // head
+  px(nx+1,cy-1,FG);                // snout
+  px(nx-1,cy-2,FG);                // ear
+  const f=Math.sin(phase)>0, b=Math.sin(phase+Math.PI)>0;
+  vl(nx-2,cy+1,cy+2+(f?1:0),FG);   // front leg
+  vl(nx-5,cy+1,cy+2+(b?1:0),FG);   // back leg
+  seg(nx-7,cy-1,nx-10,cy-1+wag,FG); // tail (tip = nx-10, cy-1+wag)
+}
+
+function drawAct1(lt){
+  if(lt>DONE_TK) return;            // black tail before act 2
+  const t=lt/DUR1;
+  if(t<TP){
+    const pt=ease(t/TP);
+    const py=CB-Math.round(pt*CL);
+    vl(CX,py+1,CB,FG); vl(CX+1,py+1,CB,FG);
+    hl(CX-5,CX+6,py,PLT); hl(CX-4,CX+5,py-1,PLT);
+    hl(CX-7,CX+9,CB+1,GND);
+  }
+  else if(t<TC){
+    const ct=(t-TP)/(TC-TP);
+    const blinkPhase=ct>0.72;
+    const blinkHide=blinkPhase&&Math.floor((ct-0.72)/0.28*8)%2===1;
+    if(!blinkHide){vl(CX,CT,CB,FG);vl(CX+1,CT,CB,FG);}
+    if(!blinkPhase){
+      const st=ct/0.72;
+      const sy=st<0.5?CT+Math.round(st/0.5*CL):CB-Math.round((st-0.5)/0.5*CL);
+      hl(CX-1,CX+2,sy,BRIGHT);
+      if(sy>CT)hl(CX,CX+1,sy-1,DIM);
+      if(sy<CB)hl(CX,CX+1,sy+1,DIM);
+    }
+    hl(CX-7,CX+9,CB+1,GND);
+  }
+  else if(t<TF){
+    const ft=ease((t-TC)/(TF-TC));
+    const ang=(Math.PI/2)*(1-ft);
+    const ex=CX+Math.round(Math.cos(ang)*CL),ey=CB-Math.round(Math.sin(ang)*CL);
+    seg(CX,CB,ex,ey,FG); seg(CX+1,CB,ex+1,ey,FG);
+    hl(0,W-1,CB+1,GND);
+  }
+  else if(t<TI){
+    const it=(t-TF)/(TI-TF);
+    const travel=it*TRAVEL;
+    const cyc=Math.floor(travel/CYCLE),cp=(travel%CYCLE)/CYCLE;
+    const bL=CX+cyc*CYCLE,bR=bL+BL;
+    let wL,wR,arch=0;
+    if(cp<.5){wL=bL;wR=bR+cp*2*CYCLE;}
+    else{wL=bL+(cp-.5)*2*CYCLE;wR=bR+CYCLE;arch=Math.sin((cp-.5)*2*Math.PI)*5;}
+    const mid=(wL+wR)/2,halfL=(wR-wL)/2;
+    for(let x=Math.round(wL);x<=Math.round(wR)&&x<W;x++){
+      const r=halfL>0?(x-mid)/halfL:0;
+      const a=Math.round(arch*(1-r*r));
+      px(x,CB-a,FG); px(x,CB-a-1,FG);
+    }
+    if(Math.round(wR)<W-1)px(Math.round(wR)-1,CB-2,BRIGHT);
+    hl(0,W-1,CB+1,GND);
+    let drawGraph=true;
+    if(travel>=GBLINK_T){
+      const bt=(travel-GBLINK_T)/(GOUT_T-GBLINK_T);
+      drawGraph=bt<1&&Math.floor(bt*10)%2===0;
+    }
+    if(drawGraph){
+      hl(GRX,GRX+GRW,GRY+GRH,DIM);
+      vl(GRX,GRY,GRY+GRH,DIM);
+      if(travel<WINDOW){
+        const fillX=Math.round((travel/WINDOW)*GRW);
+        for(let x=0;x<=fillX&&x<=GRW;x++){
+          const tr=(x/GRW)*WINDOW;
+          const sv=-Math.sin(tr/CYCLE*2*Math.PI);
+          const py=Math.round(GRY+GRH/2-sv*(GRH/2-1.8));
+          px(GRX+x,py,BRIGHT);
+        }
+        if(Math.floor(tk/14)%2===0&&fillX+1<=GRW){
+          const sv=-Math.sin(travel/CYCLE*2*Math.PI);
+          const py=Math.round(GRY+GRH/2-sv*(GRH/2-1.8));
+          px(GRX+fillX+1,py,FG);
+        }
+      } else {
+        const tStart=travel-WINDOW;
+        for(let x=0;x<=GRW;x++){
+          const tr=tStart+(x/GRW)*WINDOW;
+          const sv=-Math.sin(tr/CYCLE*2*Math.PI);
+          const py=Math.round(GRY+GRH/2-sv*(GRH/2-1.8));
+          px(GRX+x,py,BRIGHT);
+        }
+        if(Math.floor(tk/14)%2===0&&GRX+GRW+1<W){
+          const sv=-Math.sin(travel/CYCLE*2*Math.PI);
+          const py=Math.round(GRY+GRH/2-sv*(GRH/2-1.8));
+          px(GRX+GRW+1,py,FG);
+        }
+      }
+    }
+  }
+}
+
+function drawAct2(lt){
+  const t=lt/DUR2;
+  const restY=CB-GHW;
+
+  if(t<A_P){                                   // print U upward
+    const pt=ease(t/A_P);
+    const topy=CB-Math.round(pt*GFL);
+    hl(CX-GHW,CX+GHW,CB,FG);
+    vl(CX-GHW,topy,CB,FG); vl(CX+GHW,topy,CB,FG);
+    hl(CX-GHW-2,CX+GHW+2,topy-1,PLT);
+    hl(CX-7,CX+9,CB+1,GND);
+    return;
+  }
+  if(t<A_C){                                   // UV cure blink
+    const ct=(t-A_P)/(A_C-A_P);
+    const blinkPhase=ct>0.72;
+    const blinkHide=blinkPhase&&Math.floor((ct-0.72)/0.28*8)%2===1;
+    if(!blinkHide) gripper(CX,CB,Math.PI/2,0);
+    if(!blinkPhase){
+      const sy=CB-Math.round((ct/0.72)*GFL);
+      hl(CX-GHW,CX+GHW,sy,BRIGHT);
+    }
+    hl(CX-7,CX+9,CB+1,GND);
+    return;
+  }
+  if(t<A_F){                                   // fall 90deg -> sideways C
+    const ft=ease((t-A_C)/(A_F-A_C));
+    const ang=(Math.PI/2)*(1-ft);
+    const cy=CB-Math.round(GHW*ft);
+    gripper(CX,cy,ang,0);
+    hl(0,W-1,CB+1,GND);
+    drawScope2(t,false);
+    return;
+  }
+  if(t<A_O){                                   // settle: fingers open/close
+    const oc=(t-A_F)/(A_O-A_F);
+    const grip=Math.max(0,Math.sin(oc*Math.PI*4));
+    gripper(CX,restY,0,grip);
+    hl(0,W-1,CB+1,GND);
+    drawScope2(t,false);
+    return;
+  }
+  if(t<A_D){                                   // dog runs through open claw
+    const oa=(t-A_O)/(A_D-A_O);
+    const nose=Math.round(-6+oa*37);
+    gripper(CX,restY,0,0);
+    const cy=CB-3-Math.round(1.5*Math.abs(Math.sin(nose*0.6)));
+    const wag=Math.round(Math.sin(nose*0.6));
+    dog(nose,cy,nose*0.6,wag);
+    hl(0,W-1,CB+1,GND);
+    drawScope2(t,0);
+    return;
+  }
+  if(t<A_E){                                   // grab + drag off right; gripper rides the tail tip
+    const dp=(t-A_D)/(A_E-A_D);
+    const nose=Math.round(CX+GFL+10+dp*81);    // dp=0 -> gripper sits at CX
+    const bob=Math.round(2*Math.abs(Math.sin(nose*0.55)));
+    const dcy=restY-bob;                       // dog body centre (bounces)
+    const wag=Math.round(2*Math.sin(nose*0.55+0.6)); // tail wag
+    const ttx=nose-10, tty=dcy-1+wag;          // tail tip
+    const grip=Math.min(1,dp/0.06);
+    dog(nose,dcy,nose*0.55,wag);
+    gripper(ttx-GFL,tty,0,grip);               // fingertip locked onto the wagging tail tip
+    hl(0,W-1,CB+1,GND);
+    drawScope2(t,Math.abs(wag)+bob);           // tactile signal jitters with the grip
+    return;
+  }
+  // both off-screen -> black gap, signal already dropped
+}
+
+// contact-signal oscilloscope for act 2 (connected trace)
+function drawScope2(t,jitter){
+  const span=A_E-A_F;
+  const prog=(t-A_F)/span;                     // 0..1 over visible window
+  // blink out as it reaches the end
+  if(prog>0.93){
+    if(Math.floor((prog-0.93)/0.07*8)%2===1) return;
+  }
+  hl(GRX,GRX+GRW,GRY+GRH,DIM);
+  vl(GRX,GRY,GRY+GRH,DIM);
+  const fillX=Math.min(GRW,Math.round(prog*GRW));
+  const lvl=(pf)=>{                             // pf = act2 fraction
+    if(pf<A_D) return 0.06;                     // flat baseline (open / approaching)
+    const r=(pf-A_D)/(A_E-A_D);
+    const drop=r>0.92?(r-0.92)/0.08:0;          // release at exit
+    return Math.max(0.06,0.9-drop*0.84+0.05*Math.sin(pf*90)); // plateau ripples
+  };
+  const yOf=(L)=>Math.round(GRY+GRH-1-L*(GRH-2));
+  let prevY=null;
+  for(let x=0;x<=fillX;x++){
+    const pf=A_F+(x/GRW)*span;
+    const y=yOf(lvl(pf));
+    if(prevY!==null) vl(GRX+x,Math.min(y,prevY),Math.max(y,prevY),BRIGHT); // connect -> vertical rise on contact
+    else px(GRX+x,y,BRIGHT);
+    prevY=y;
+  }
+  if(fillX>=0) px(GRX+fillX,yOf(lvl(t)),FG);   // beam head sits on the trace (only once tracing starts)
+}
+
+function draw(){
+  if(paused){requestAnimationFrame(draw);return;}
+  const lt=tk%DUR;
+  g.fillStyle=BG;g.fillRect(0,0,cv.width,cv.height);
+  if(lt<DUR1) drawAct1(lt);
+  else drawAct2(lt-DUR1);
+  tk++;
+  requestAnimationFrame(draw);
+}
+draw();
+})();
+</script>

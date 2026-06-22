@@ -2,14 +2,20 @@
 layout: wide
 ---
 
-<div class="about-hero">
-  {% if page.hero_image %}
+<div class="about-head">
+  {% if page.profile_image %}
   <img
-    class="about-hero__img"
-    src="{{ page.hero_image | relative_url }}"
+    class="about-head__photo"
+    src="{{ page.profile_image | relative_url }}"
     alt="{{ page.title | escape }}"
   />
   {% endif %}
+  <div class="about-head__media" title="click to pause">
+    {% include inchworm_anim.html %}
+    {% if page.tagline %}
+    <p class="about-motto__quote">{{ page.tagline }}</p>
+    {% endif %}
+  </div>
 </div>
 
 <div class="about-top">
