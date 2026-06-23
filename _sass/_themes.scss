@@ -3,19 +3,20 @@
  ******************************************************************************/
 
 :root {
-  --global-bg-color: #{$white-color};
+  // Warm-minimal light theme (paper + warm ink + burnt-orange accent)
+  --global-bg-color: #f3efe6;
   --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-dark};
-  --global-footer-text-color: #{$grey-color-light};
-  --global-footer-link-color: #{$white-color};
+  --global-text-color: #2c281f;
+  --global-text-color-light: #7a7264;
+  --global-theme-color: #b4541f;
+  --global-hover-color: #b4541f;
+  --global-hover-text-color: #f7f3ea;
+  --global-footer-bg-color: #2c281f;
+  --global-footer-text-color: #b7ad9b;
+  --global-footer-link-color: #f3efe6;
   --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0,0,0,.1);
-  --global-card-bg-color: #{$white-color};
+  --global-divider-color: rgba(44, 40, 31, 0.14);
+  --global-card-bg-color: #faf7f0;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -48,19 +49,20 @@
 }
 
 html[data-theme='dark'] {
-  --global-bg-color: #{$grey-color-dark};
+  // Warm-minimal dark theme
+  --global-bg-color: #14110d;
   --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
-  --global-text-color-light: #{$grey-color-light};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$black-color};
+  --global-text-color: #d9d2c4;
+  --global-text-color-light: #9a9385;
+  --global-theme-color: #e0915a;
+  --global-hover-color: #e0915a;
+  --global-hover-text-color: #14110d;
+  --global-footer-bg-color: #1f1b15;
+  --global-footer-text-color: #9a9385;
+  --global-footer-link-color: #e8e0d2;
   --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{$grey-900};
+  --global-divider-color: rgba(255, 255, 255, 0.1);
+  --global-card-bg-color: #1f1b15;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

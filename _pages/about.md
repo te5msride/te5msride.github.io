@@ -7,7 +7,7 @@ nav_order: 3
 
 profile_image: /assets/img/prof_pic.jpg
 
-tagline: monolithic systems · immediate functionality · off the printbed
+tagline: "monolithic systems: immediate functionality, off the print bed"
 
 intro: >
   I’m a postdoctoral researcher at the Istituto Italiano di Tecnologia (IIT) in Genova, in the Soft Biorobotics Perception research line.  

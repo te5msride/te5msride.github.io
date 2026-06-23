@@ -13,6 +13,9 @@ hover_video: /assets/video/melegros-hover.mp4
 hero_video: /assets/video/melegros-hover.mp4
 hero_poster: /assets/img/projects/melegros-thumb.png
 
+cover_image: /assets/img/news/advanced-science-cover-2026.jpg
+cover_caption: "Featured on the cover — Advanced Science (2026)"
+
 summary: "A monolithic elephant-inspired gripper integrating optical sensing for contact-rich manipulation."
 
 paper:

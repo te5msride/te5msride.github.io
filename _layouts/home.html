@@ -18,6 +18,23 @@ layout: default
     </div>
     {% endif %}
 
+    {% if page.highlights %}
+    <div class="home-highlights">
+      {% for h in page.highlights %}
+      <a class="highlight-card highlight-card--{{ h.kind }}" href="{{ h.href | relative_url }}">
+        {% if h.image %}
+        <span class="highlight-card__img"><img src="{{ h.image | relative_url }}" alt="{{ h.text }} cover" loading="lazy" /></span>
+        {% endif %}
+        <span class="highlight-card__body">
+          <span class="highlight-card__label">{{ h.label }}</span>
+          <span class="highlight-card__text">{{ h.text }}</span>
+          {% if h.meta %}<span class="highlight-card__meta">{{ h.meta }}</span>{% endif %}
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
     <div class="home-columns">
       <div class="home-left">
         <div class="home-headrow">

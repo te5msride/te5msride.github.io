@@ -47,6 +47,75 @@
   opacity: 0.45;
 }
 
+/* Highlights strip — surfaces key signals up front */
+.home-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+
+  @media (max-width: 820px) {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+}
+
+.highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 14px;
+  background: var(--global-card-bg-color);
+  text-decoration: none;
+  color: var(--global-text-color);
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--global-theme-color);
+}
+
+.highlight-card__img {
+  flex: 0 0 auto;
+}
+
+.highlight-card__img img {
+  display: block;
+  width: 46px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.highlight-card__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.highlight-card__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--global-theme-color);
+  margin-bottom: 0.22rem;
+}
+
+.highlight-card__text {
+  font-size: 0.95rem;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.highlight-card__meta {
+  font-size: 0.8rem;
+  color: var(--global-text-color-light);
+  margin-top: 0.18rem;
+}
+
 /* Section headings with right-aligned link */
 .home-headrow {
   display: flex;
@@ -97,7 +166,7 @@
 }
 
 .selected-card {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--global-divider-color);
   border-radius: 16px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.01);

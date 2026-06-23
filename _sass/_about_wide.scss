@@ -38,11 +38,10 @@
 
 .about-motto__quote {
   margin: 0;
-  font-family: "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  text-transform: lowercase;
-  opacity: 0.55;
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--global-text-color-light);
   text-align: center;
 }
 

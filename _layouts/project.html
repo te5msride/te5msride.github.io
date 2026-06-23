@@ -69,6 +69,15 @@ layout: wide
     </div>
   </header>
 
+  {% if page.cover_image %}
+  <figure class="project-cover">
+    <a href="{{ page.cover_image | relative_url }}" target="_blank" rel="noopener">
+      <img src="{{ page.cover_image | relative_url }}" alt="{{ page.cover_caption | default: 'Journal cover' }}" loading="lazy" />
+    </a>
+    {% if page.cover_caption %}<figcaption>{{ page.cover_caption }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+
   <div class="project-content">{{ content }}</div>
 
   {% if page.citation %}
