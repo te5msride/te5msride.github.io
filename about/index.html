@@ -150,7 +150,16 @@ const P=8,W=84,H=30;
 const cv=document.getElementById('te-anim');
 cv.width=W*P; cv.height=H*P;
 const g=cv.getContext('2d');
-const BG='#0d0d0d',FG='#c4c0b8',BRIGHT='#f0ede8',DIM='#3a3836',GND='#171716',PLT='#3c3a3a';
+let BG,FG,BRIGHT,DIM,GND,PLT;
+function applyTheme(){
+  const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  if(dark){ FG='#c4c0b8';BRIGHT='#f0ede8';DIM='#3a3836';GND='#171716';PLT='#3c3a3a'; } // white robot on dark
+  else    { FG='#2c281f';BRIGHT='#0d0b07';DIM='#d8cfbd';GND='#e8dfcd';PLT='#bcb29c'; } // black robot on paper
+  const bg=getComputedStyle(document.documentElement).getPropertyValue('--global-bg-color').trim();
+  BG=bg||(dark?'#0d0d0d':'#f3efe6');   // backdrop follows the page background in either theme
+}
+applyTheme();
+new MutationObserver(applyTheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 function px(x,y,c){if(x<0||x>=W||y<0||y>=H)return;g.fillStyle=c;g.fillRect(x*P,y*P,P,P);}
 function hl(a,b,y,c){for(let x=~~a;x<=~~b;x++)px(x,y,c);}
 function vl(x,a,b,c){for(let y=~~a;y<=~~b;y++)px(x,y,c);}
@@ -167,6 +176,7 @@ const BL=CL;
 const CYCLE=5,TRAVEL=72;
 const GRX=8,GRY=2,GRW=68,GRH=11;
 const WINDOW=4*CYCLE;
+const SCYCLE=CYCLE*1.35;   // oscilloscope wave period — slightly slower than the crawl stride
 
 // ---- ACT 1: inchworm ----
 const DUR1=580;
@@ -181,7 +191,8 @@ const A_P=0.16,A_C=0.27,A_F=0.40,A_O=0.58,A_D=0.70,A_E=0.93;
 
 const DUR=DUR1+DUR2;
 
-let tk=0,paused=false;
+let tk=0,paused=false,last=null,acc=0;
+const RATE=60;                       // ticks per second, independent of display refresh rate
 cv.addEventListener('click',()=>paused=!paused);
 
 // draw a gripper given centre, fall angle (PI/2=upright U, 0=sideways C->right), grip(0 open..1 closed)
@@ -269,12 +280,12 @@ function drawAct1(lt){
         const fillX=Math.round((travel/WINDOW)*GRW);
         for(let x=0;x<=fillX&&x<=GRW;x++){
           const tr=(x/GRW)*WINDOW;
-          const sv=-Math.sin(tr/CYCLE*2*Math.PI);
+          const sv=-Math.sin(tr/SCYCLE*2*Math.PI);
           const py=Math.round(GRY+GRH/2-sv*(GRH/2-1.8));
           px(GRX+x,py,BRIGHT);
         }
         if(Math.floor(tk/14)%2===0&&fillX+1<=GRW){
-          const sv=-Math.sin(travel/CYCLE*2*Math.PI);
+          const sv=-Math.sin(travel/SCYCLE*2*Math.PI);
           const py=Math.round(GRY+GRH/2-sv*(GRH/2-1.8));
           px(GRX+fillX+1,py,FG);
         }
@@ -282,12 +293,12 @@ function drawAct1(lt){
         const tStart=travel-WINDOW;
         for(let x=0;x<=GRW;x++){
           const tr=tStart+(x/GRW)*WINDOW;
-          const sv=-Math.sin(tr/CYCLE*2*Math.PI);
+          const sv=-Math.sin(tr/SCYCLE*2*Math.PI);
           const py=Math.round(GRY+GRH/2-sv*(GRH/2-1.8));
           px(GRX+x,py,BRIGHT);
         }
         if(Math.floor(tk/14)%2===0&&GRX+GRW+1<W){
-          const sv=-Math.sin(travel/CYCLE*2*Math.PI);
+          const sv=-Math.sin(travel/SCYCLE*2*Math.PI);
           const py=Math.round(GRY+GRH/2-sv*(GRH/2-1.8));
           px(GRX+GRW+1,py,FG);
         }
@@ -395,21 +406,28 @@ function drawScope2(t,jitter){
   if(fillX>=0) px(GRX+fillX,yOf(lvl(t)),FG);   // beam head sits on the trace (only once tracing starts)
 }
 
-function draw(){
-  if(paused){requestAnimationFrame(draw);return;}
-  const lt=tk%DUR;
+function frame(lt){                  // pure render of a single tick
+  const m=((lt%DUR)+DUR)%DUR;
   g.fillStyle=BG;g.fillRect(0,0,cv.width,cv.height);
-  if(lt<DUR1) drawAct1(lt);
-  else drawAct2(lt-DUR1);
-  tk++;
-  requestAnimationFrame(draw);
+  if(m<DUR1) drawAct1(m);
+  else drawAct2(m-DUR1);
 }
-draw();
+function draw(ts){
+  requestAnimationFrame(draw);
+  if(paused){last=ts;return;}
+  if(last===null)last=ts;
+  let dt=(ts-last)/1000; last=ts;
+  if(dt>0.25)dt=0.25;                // clamp after the tab was backgrounded
+  acc+=dt*RATE;
+  const steps=Math.floor(acc); acc-=steps; tk+=steps;   // advance on wall-clock time
+  frame(tk);
+}
+requestAnimationFrame(draw);
 })();
 </script>
 
     
-    <p class="about-motto__quote">monolithic systems · immediate functionality · off the printbed</p>
+    <p class="about-motto__quote">monolithic systems: immediate functionality, off the print bed</p>
     
   </div>
 </div>
