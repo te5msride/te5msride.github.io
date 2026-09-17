@@ -5,5 +5,5 @@ title: cv
 nav: false
 nav_order: 4
 cv_pdf: Trevor Exley CV.pdf
-description: Last updated 2026-06-22.
+description: Last updated 2026-09-17.
 ---

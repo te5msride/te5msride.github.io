@@ -4,11 +4,9 @@
     - name: Full Name
       value: Trevor W. Exley
     - name: Address
-      value: Corso Ugo Bassi 58, Interno 1, 16135 Genova, Italy
-    - name: Phone
-      value: +39 344 798 3165
+      value: 730 Commonwealth Avenue, EMA 307, Boston, MA 02215
     - name: Email
-      value: trevorwexley@gmail.com
+      value: texley@bu.edu
     - name: Website
       value: exley.info
 
@@ -43,9 +41,12 @@
 - title: Research Experience
   type: time_table
   contents:
+    - title: Postdoctoral Associate
+      institution: Material Robotics Laboratory, Boston University, Boston, MA
+      year: Sep 2026 – Present
     - title: Postdoctoral Researcher
       institution: Soft Biorobotics Perception Research Line, Istituto Italiano di Tecnologia (IIT), Genova
-      year: Oct 2024 – Present
+      year: Oct 2024 – Aug 2026
     - title: PhD Candidate & Researcher
       institution: Advanced Robotic Manipulators Lab, University of North Texas
       year: Aug 2021 – May 2024
@@ -72,6 +73,6 @@
   type: map
   contents:
     - name: Email
-      value: trevorwexley@gmail.com
+      value: texley@bu.edu
     - name: Website
       value: exley.info

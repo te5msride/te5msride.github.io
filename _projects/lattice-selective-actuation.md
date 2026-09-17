@@ -14,7 +14,7 @@ hero_video: /assets/video/lattice-motion-modes.mp4
 hero_poster: /assets/img/projects/lattice-thumb.png
 
 
-summary: "Monolithic pneumatic unit cells embedded in curved-strut lattices achieve distributed morphology — bending, grasping, and locomotion — through spatial actuation patterns alone."
+summary: "Monolithic pneumatic unit cells embedded in curved-strut lattices achieve distributed morphology (bending, grasping, and locomotion) through spatial actuation patterns alone."
 
 paper:
   title: "IROS 2026 (accepted) • arXiv:2606.18704"
@@ -28,7 +28,7 @@ citation: |
 
 ## Overview
 
-A monolithic unit cell merges **curved-strut lattice geometry** with a **bidirectional bellow actuator**. Tiled into arrays and selectively pressurized, the lattice becomes a distributed actuation field — overall shape emerges from the spatial pattern of active vs. passive cells, not from a single actuator or rigid linkage.
+A monolithic unit cell merges **curved-strut lattice geometry** with a **bidirectional bellow actuator**. Tiled into arrays and selectively pressurized, the lattice becomes a distributed actuation field. Overall shape emerges from the spatial pattern of active vs. passive cells, not from a single actuator or rigid linkage.
 
 ## Key results
 

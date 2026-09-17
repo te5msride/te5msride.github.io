@@ -7,7 +7,7 @@ nav: false
 hero:
   enabled: true
   headline: "Soft robotics • thermal actuation • embedded sensing"
-  subhead: "Postdoc at IIT Genova building monolithic, thermo-active soft robotic systems and data-driven biomechanics."
+  subhead: "Postdoc at Boston University using parametric design to build monolithic soft robots, architected lattices, and embedded soft sensing."
   tagline: "monolithic systems: immediate functionality, off the print bed"
   mp4: /assets/video/hero.mp4
   webm: /assets/video/hero.webm
@@ -18,8 +18,8 @@ hero:
   cta_secondary_href: "/about/"
 
 home_bio: >
-  I’m a postdoctoral researcher at the Istituto Italiano di Tecnologia (IIT) in Genova.
-  I build monolithic soft robotic systems using parametric design tools — integrating actuation, structure, and sensing into single printed bodies.
+  I’m a postdoctoral associate at Boston University. I build monolithic soft robots, using parametric design to integrate actuation, architected lattice structures, and embedded sensing into single printed bodies.
+  Currently, I’m working on soft sensing for steerable medical robots in the Material Robotics Laboratory.
 
 home_links:
   - text: "Google Scholar"
@@ -30,6 +30,11 @@ home_links:
     href: "https://www.linkedin.com/in/trevor-exley-573412166/"
 
 highlights:
+  - kind: paper
+    label: "New software"
+    text: "Cushion: soft robotics simulation in Grasshopper"
+    meta: "SOFA Week 2026 invited talk"
+    href: /projects/cushion/
   - kind: cover
     image: /assets/img/news/advanced-science-cover-2026.jpg
     label: "On the cover"
@@ -41,11 +46,6 @@ highlights:
     text: "Selective unit-cell actuation in lattice structures"
     meta: "IROS 2026"
     href: /projects/lattice-selective-actuation/
-  - kind: award
-    label: "Recognition"
-    text: "Outstanding Ph.D. Graduate"
-    meta: "UNT, 2024"
-    href: /about/
 
 selected_work: true
 news: true

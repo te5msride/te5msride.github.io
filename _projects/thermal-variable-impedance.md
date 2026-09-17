@@ -30,4 +30,4 @@ What I did:
 
 ## Related publications
 
-- **Estimating Stiffness and Damping of a Novel Variable Impedance Actuator Based on Adjusting Viscoelastic Properties of Thermoresponsive Polycaprolactone in Harmonic Motions** — *Scientific Reports* (2025). [DOI](https://doi.org/10.1038/s41598-025-30236-6)
+- **Estimating Stiffness and Damping of a Novel Variable Impedance Actuator Based on Adjusting Viscoelastic Properties of Thermoresponsive Polycaprolactone in Harmonic Motions**, *Scientific Reports* (2025). [DOI](https://doi.org/10.1038/s41598-025-30236-6)
