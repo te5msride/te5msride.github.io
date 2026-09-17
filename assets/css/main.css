@@ -1501,7 +1501,7 @@ ul.timeline li::before {
   opacity: 0.45;
 }
 
-/* Highlights strip — surfaces key signals up front */
+/* Highlights strip: surfaces key signals up front */
 .home-highlights {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

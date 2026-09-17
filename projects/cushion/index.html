@@ -17,7 +17,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>MELEGROS: Monolithic Elephant-inspired Gripper with Optical Sensors | Trevor Exley</title>
+<title>Cushion: Soft Robotics Simulation in Grasshopper, Powered by SOFA | Trevor Exley</title>
 <meta name="author" content="Trevor W. Exley">
 <meta name="description" content="Dedicated researcher in biomechanics, machine learning, and compliant robotics with a focus on rehabilitation applications.
 ">
@@ -25,8 +25,8 @@
 <!-- OpenGraph -->
 <meta property="og:site_name" content="Trevor Exley">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Trevor Exley | MELEGROS: Monolithic Elephant-inspired Gripper with Optical Sensors">
-<meta property="og:url" content="https://te5msride.github.io/projects/melegros/">
+<meta property="og:title" content="Trevor Exley | Cushion: Soft Robotics Simulation in Grasshopper, Powered by SOFA">
+<meta property="og:url" content="https://te5msride.github.io/projects/cushion/">
 <meta property="og:description" content="Dedicated researcher in biomechanics, machine learning, and compliant robotics with a focus on rehabilitation applications.
 ">
 
@@ -34,7 +34,7 @@
 
 <!-- Twitter card -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MELEGROS: Monolithic Elephant-inspired Gripper with Optical Sensors">
+<meta name="twitter:title" content="Cushion: Soft Robotics Simulation in Grasshopper, Powered by SOFA">
 <meta name="twitter:description" content="Dedicated researcher in biomechanics, machine learning, and compliant robotics with a focus on rehabilitation applications.
 ">
  
@@ -62,7 +62,7 @@
     <link rel="shortcut icon" href="/assets/img/favicon.svg">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://te5msride.github.io/projects/melegros/">
+    <link rel="canonical" href="https://te5msride.github.io/projects/cushion/">
 
     <!-- Dark Mode -->
     
@@ -141,59 +141,71 @@
 <article class="project">
   <div class="project-hero">
     
-    <video class="project-hero__media" autoplay muted loop playsinline preload="metadata" poster="/assets/img/projects/melegros-thumb.png">
-      <source src="/assets/video/melegros-hover.mp4" type="video/mp4"></source>
+    <video class="project-hero__media" autoplay muted loop playsinline preload="metadata" poster="/assets/img/projects/cushion-thumb.png">
+      <source src="/assets/video/cushion-gripper.mp4" type="video/mp4"></source>
     </video>
     
   </div>
 
   <header class="project-header">
-    <h1>MELEGROS: Monolithic Elephant-inspired Gripper with Optical Sensors</h1>
+    <h1>Cushion: Soft Robotics Simulation in Grasshopper, Powered by SOFA</h1>
 
     
-    <p class="project-tagline">A monolithic elephant-inspired gripper integrating optical sensing for contact-rich manipulation.</p>
+    <p class="project-tagline">Open-source Grasshopper plugin that runs SOFA soft-body FEM directly from parametric models. Define a body, its cavities or tendons, and an actuation schedule, and get trajectories, forces, and deformed shapes back on the canvas.</p>
     
 
     <div class="project-links">
       
-      <a class="btn btn-sm btn-outline-primary" href="https://arxiv.org/pdf/2509.20510" target="_blank" rel="noopener">📄 Advanced Science (accepted, 2025)</a>
+      <a class="btn btn-sm btn-outline-primary" href="https://github.com/te5msride/cushion" target="_blank" rel="noopener">📄 GitHub • Zenodo DOI 10.5281/zenodo.21625292</a>
          
     </div>
   </header>
 
   
-  <figure class="project-cover">
-    <a href="/assets/img/news/advanced-science-cover-2026.jpg" target="_blank" rel="noopener">
-      <img src="/assets/img/news/advanced-science-cover-2026.jpg" alt="Featured on the cover of Advanced Science (2026)" loading="lazy">
-    </a>
-    <figcaption>Featured on the cover of Advanced Science (2026)</figcaption>
-  </figure>
-  
 
   <div class="project-content">
 <h2 id="overview">Overview</h2>
 
-<p>MELEGROS is a monolithic, elephant-inspired soft gripper designed for robust grasping while providing optical sensing for contact-rich manipulation.</p>
+<p><strong>Cushion</strong> is the soft layer between Grasshopper and <a href="https://www.sofa-framework.org/" rel="external nofollow noopener" target="_blank">SOFA</a>. You describe a soft robot the way you already model in Rhino/Grasshopper: a deformable body, the pneumatic cavities or tendons that drive it, and a schedule of pressures or pulls over time. Cushion meshes the geometry, writes a runnable SOFA scene, launches the simulation, and brings the results (trajectories, forces, contacts, deformed shapes) back onto the canvas.</p>
 
-<h2 id="what-i-did">What I did</h2>
+<p>The scene structure follows the <a href="/projects/monolithic-units/">Monolithic Units</a> pipeline (RoboSoft 2026): corotational tetrahedral FEM, a homogenized lattice material, MeshROI-based local stiffening, and SoftRobots pressure and cable constraints.</p>
+
+<h2 id="highlights">Highlights</h2>
 
 <ul>
-  <li>Designed the monolithic gripper morphology for stable grasps across object shapes</li>
-  <li>Integrated optical sensing and built the acquisition + processing pipeline</li>
-  <li>Characterized grasp behavior and sensing signatures across diverse objects</li>
+  <li>
+<strong>v0.1.0 released</strong> July 2026: open source (LGPL-2.1), archived on Zenodo</li>
+  <li>Available on <a href="https://www.food4rhino.com/en/app/cushion?lang=en" rel="external nofollow noopener" target="_blank">food4Rhino</a> and Rhino’s Package Manager</li>
+  <li>Worked examples: PneuNet gripper and tendon-driven continuum robot</li>
+  <li>
+<strong>Invited talk at <a href="https://www.sofa-framework.org/sofa-events/sofa-week-2026/" rel="external nofollow noopener" target="_blank">SOFA Week 2026</a></strong> (Nov 25–27, Lille)</li>
 </ul>
 
-<h2 id="key-idea">Key idea</h2>
+<h2 id="tendon-continuum-robot">Tendon continuum robot</h2>
 
-<p>Combine <strong>monolithic compliance</strong> with <strong>embedded optical sensing</strong> so the gripper can both <em>adapt</em> and <em>measure</em> interaction without complex assembly.</p>
+<video autoplay="" muted="" loop="" playsinline="" style="width:100%;border-radius:8px;margin-bottom:1rem">
+  <source src="/assets/video/cushion-continuum.mp4" type="video/mp4"></source>
+</video>
+
+<h2 id="links">Links</h2>
+
+<ul>
+  <li>Code: <a href="https://github.com/te5msride/cushion" rel="external nofollow noopener" target="_blank">github.com/te5msride/cushion</a>
+</li>
+  <li>Archive: <a href="https://doi.org/10.5281/zenodo.21625292" rel="external nofollow noopener" target="_blank">doi:10.5281/zenodo.21625292</a>
+</li>
+  <li>Videos: <a href="https://www.youtube.com/playlist?list=PLZcYzST93d40" rel="external nofollow noopener" target="_blank">YouTube playlist</a>, with a release overview and installation tutorial</li>
+</ul>
+
+<p>Developed with Anderson B. Nardin (Soft BioRobotics Perception, IIT).</p>
 </div>
 
   
   <section class="project-citation">
     <h3>Citation</h3>
-    <pre>P. Trunin, D. Cafiso, A. B. Nardin, T. Exley†, L. Beccai.
-MELEGROS: Monolithic Elephant-inspired Gripper with Optical Sensors.
-Submitted to Advanced Science (2025). (accepted)
+    <pre>Exley, T., Nardin, A. B.
+Cushion: a Grasshopper plugin for soft-robotics simulation powered by SOFA (v0.1.0).
+Zenodo, 2026. doi:10.5281/zenodo.21625292
 </pre>
   </section>
   
